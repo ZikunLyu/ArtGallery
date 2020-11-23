@@ -1,0 +1,28 @@
+.container {
+    padding-top: 2%;
+}
+
+.avatar-sider {
+    background-color: #f7f7f9;
+}
+
+.editor-background {
+    background-color: #f7f7f9;
+}
+
+.avatar-space {
+    text-align: center;
+    margin-top: 68%;
+    margin-left: 20%;
+}
+
+.image-panel {
+}
+
+.addfile-button {
+    margin: 2%;
+}
+
+.photosviewer-topbar {
+    background-color: #f7f7f9;
+}

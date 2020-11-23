@@ -1,0 +1,31 @@
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+}
+
+.App-logo-div {
+  flex: 1;
+}
+
+.mr-auto {
+  text-align: center;
+}
+
+.Login_Signup {
+  flex: 1;
+  text-align: end;
+  padding: 1vw 1vh;
+}
+
+.Login {
+  border-radius: 1rem;
+  margin-right: 1vw;
+}
+
+#footer-abstract {
+  color: white;
+}
+
+.nav-link {
+  color: white !important;
+}

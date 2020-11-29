@@ -54,35 +54,47 @@ export default class Transaction extends Component {
         transactionId: id,
         status: status
       }
-    });
+    })
+      .then(res => {
+        return axios({
+          method: 'get',
+          url: 'http://localhost:3001/api/v1/transactions/getTransactionSent',
+          params: {
+            email: new URLSearchParams(this.props.location.search).get('email')
+          }
+        }).then(res => {
 
-    this.setState(state => ({
-      button_click: !state.button_click
-    }));
-    
-    axios({
-      method: 'get',
-      url: 'http://localhost:3001/api/v1/transactions/getTransactionSent',
-      params: { email: new URLSearchParams(this.props.location.search).get("email") }
-    }).then(res => {
-      console.log(res.data.trans);
-      const trans_send = res.data.trans;
-      this.setState({ trans_send: trans_send });
-    }).catch((err) => console.log(err));
+          const trans_send = res.data.trans;
+          this.setState(state => ({
+            button_click: !state.button_click
+          }));
+  
+          this.setState({
+            trans_send: trans_send
+          });
+        })
+        .catch(err => console.log(err));
+      })
+
 
     axios({
       method: 'get',
       url: 'http://localhost:3001/api/v1/transactions/getTransactionReceived',
-      params: { email: new URLSearchParams(this.props.location.search).get("email") }
-    }).then(res => {
-      console.log(res.data.trans);
-      const trans_receive = res.data.trans;
-      this.setState({ trans_receive: trans_receive });
-    }).catch((err) => console.log(err));
+      params: {
+        email: new URLSearchParams(this.props.location.search).get('email')
+      }
+    })
+      .then(res => {
+        console.log(res.data.trans);
+        const trans_receive = res.data.trans;
+        this.setState({
+          trans_receive: trans_receive
+        });
+      })
+      .catch(err => console.log(err));
     //console.log(this.state.button_click);
 
     //window.location.reload(false);
-  
   }
 
 
